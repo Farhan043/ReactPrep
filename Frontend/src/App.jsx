@@ -1,13 +1,18 @@
-import { CalendarIcon } from 'lucide-react'
 import React from 'react'
+import Register from './Auth/Register'
+import Login from './Auth/Login'
+import {Routes , Route} from 'react-router-dom'
+import Home from './Pages/Home'
 
 const App = () => {
   return (
-    <div className='flex justify-center items-center h-screen '>
-      <button  className='cursor-pointer flex items-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg'>
-        <CalendarIcon className='mr-2 h-4 w-4' />
-        HELLO!</button>
-    </div>
+   <div>
+    <Routes>
+    <Route path="/" element={<Home />} />
+      <Route  path="/login" element={<Login/>} />
+      <Route  path="/register" element={<Register/>} />
+    </Routes>
+   </div>
   )
 }
 
