@@ -18,7 +18,6 @@ const Profile = () => {
       <p><strong>Name:</strong> {user.name}</p>
       <p><strong>Email:</strong> {user.email}</p>
       <p><strong>Date of Birth:</strong> {new Date(user.dob).toLocaleDateString()}</p>
-      <p><strong>Role:</strong> {user.role}</p>
       <p><strong>Joined:</strong> {new Date(user.created_at).toLocaleString()}</p>
     </div>
   );
