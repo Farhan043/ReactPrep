@@ -6,16 +6,16 @@ import Home from "./Pages/Home";
 import { Toaster } from "./components/ui/sonner";
 import Profile from "./Auth/Profile";
 import LogoutButton from "./Auth/LogoutButton";
-import ProtectedRoute from "./components/ProtectedRoute"; // Assuming you’ve made this
-import Dashboard from "./components/Dashboard";
-import Practice from "./components/Practice";
-import PlayGround from "./components/PlayGround";
-import Gaming from "./components/Gaming";
-import Challenges from "./components/Challenges";
-import Interview from "./components/Interview";
-import Resources from "./components/Resources";
-import Admin from "./components/Admin";
-import Assistant from "./components/Assistant";
+import ProtectedRoute from "./components/NavComponents/ProtectedRoute"; // Assuming you’ve made this
+import Dashboard from "./components/NavComponents/Dashboard";
+import Practice from "./components/NavComponents/Practice";
+import PlayGround from "./components/NavComponents/PlayGround";
+import Gaming from "./components/NavComponents/Gaming";
+import Challenges from "./components/NavComponents/Challenges";
+import Interview from "./components/NavComponents/Interview";
+import Resources from "./components/NavComponents/Resources";
+import Admin from "./components/NavComponents/Admin";
+import Assistant from "./components/NavComponents/Assistant";
 
 const App = () => {
   return (
