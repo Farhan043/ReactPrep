@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "sonner";
 
-// import { UserDataContext } from '../../Context/UserContext';
+import { AuthContext } from "../context/AuthContext";
 
 const Register = () => {
   // Declare state variables for each input field
@@ -15,7 +15,7 @@ const Register = () => {
 
 
   // Get the setUser function from the UserDataContext
-  // const { setUser } = React.useContext(UserDataContext);
+ const { setUser } = useContext(AuthContext);
   // Get the navigate function from the useNavigate hook
   const navigate = useNavigate();
 
@@ -61,7 +61,7 @@ const Register = () => {
       );
       if (response.status === 200 || response.status === 201) {
         const data = response.data;
-        // setUser(data.user); // Uncomment if using context
+        setUser(data.user); // Uncomment if using context
         localStorage.setItem("token", data.token);
         toast.success("Registration successful!", {
           position: "top-right",

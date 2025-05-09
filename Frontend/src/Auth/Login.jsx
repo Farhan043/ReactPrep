@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { UserDataContext } from "../../Context/UserContext";
 import axios from "axios";
 import {toast} from "sonner";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const { setUser } = useContext(UserDataContext);
+   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const submitHandler = async (e) => {
@@ -15,7 +15,7 @@ const Login = () => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, { email, password });
        if (response.status === 200 || response.status === 201) {
-        // setUser(response.data.user);
+        setUser(response.data.user);
         localStorage.setItem("token", response.data.token);
         toast.success("Login successful! Redirecting...");
         setTimeout(() => navigate("/"), 1000);
