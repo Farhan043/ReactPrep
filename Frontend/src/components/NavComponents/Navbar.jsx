@@ -27,7 +27,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className=" bg-black text-white">
       <nav className="backdrop-blur-xl px-4 py-3 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
@@ -140,3 +140,15 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
+
+
+
+
+
+
+
+
