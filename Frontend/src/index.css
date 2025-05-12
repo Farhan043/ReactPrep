@@ -239,3 +239,30 @@
 .animate-float3 { animation: float3 14s ease-in-out infinite; }
 .animate-float4 { animation: float4 11s ease-in-out infinite; }
 .animate-float5 { animation: float5 13s ease-in-out infinite; }
+
+
+
+
+
+
+@keyframes animatedBorder {
+  0% {
+    border-color: #3b82f6 #8b5cf6 #ec4899 #10b981; /* blue, purple, pink, green */
+  }
+  25% {
+    border-color: #8b5cf6 #ec4899 #10b981 #3b82f6;
+  }
+  50% {
+    border-color: #ec4899 #10b981 #3b82f6 #8b5cf6;
+  }
+  75% {
+    border-color: #10b981 #3b82f6 #8b5cf6 #ec4899;
+  }
+  100% {
+    border-color: #3b82f6 #8b5cf6 #ec4899 #10b981;
+  }
+}
+
+.animated-border {
+  animation: animatedBorder 3s linear infinite;
+}
