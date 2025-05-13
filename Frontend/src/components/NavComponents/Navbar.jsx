@@ -1,9 +1,8 @@
-
-
 // components/Navbar.jsx
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 import {
   Tooltip,
   TooltipContent,
@@ -14,6 +13,8 @@ import {
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
 
   const links = [
     { name: "Dashboard", path: "/dashboard" },
@@ -23,15 +24,19 @@ const Navbar = () => {
     { name: "Challenges", path: "/challenge" },
     { name: "Interview", path: "/interview" },
     { name: "Resources", path: "/resources" },
-    { name: "Admin", path: "/admin" },
+    // Only include Admin link if user has admin role
+    ...(user?.role === "admin" ? [{ name: "Admin", path: "/admin" }] : []),
   ];
 
+  const handleClick = () => {
+    navigate("/");
+  }
   return (
     <div className=" bg-black text-white">
       <nav className="backdrop-blur-xl px-4 py-3 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
-          <div className="text-xl font-bold">
+          <div onClick={handleClick} className="text-xl cursor-pointer font-bold">
             <span className="text-white">React</span>
             <span className="text-white font-semibold">Prep</span>
           </div>

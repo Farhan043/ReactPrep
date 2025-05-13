@@ -1,8 +1,17 @@
 import { ArrowRight } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 
 export default function Hero() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/profile");
+  }
+  const handleClick2 = () => {
+    navigate("/practice");
+  }
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden">
       {/* Enhanced Professional Background Lighting */}
@@ -73,43 +82,11 @@ export default function Hero() {
               ReactPrep helps you prepare for your next React role with tailored questions, hands-on coding challenges, and interview simulations.
             </p>
             <div className="flex items-center justify-center gap-4">
-            <button className="bg-purple-500 text-black px-6 py-2 cursor-pointer rounded-full font-semibold   transition">Start Practicing</button>
-            <button className="bg-black text-white  border-2 border-purple-600 cursor-pointer px-6 py-2 rounded-full font-semibold transition">View Profile</button>
+            <buttonb onClick={handleClick2} className="bg-purple-500 text-black px-6 py-2 cursor-pointer rounded-full font-semibold   transition">Start Practicing</buttonb>
+            <button onClick={handleClick} className="bg-black text-white  border-2 border-purple-600 cursor-pointer px-6 py-2 rounded-full font-semibold transition">View Profile</button>
             </div>
           </div>
         </div>
-
-            <div className="flex gap-4 mt-12 items-center justify-center ">
-  {/* Card 1 */}
-  <div className="bg-[#111827] border border-gray-700 rounded-xl p-4 w-64 text-white shadow-lg shadow-blue-500/20 transition-all">
-    <h3 className="text-lg font-semibold mb-2">Featured Challenges</h3>
-    <div className="flex items-center gap-3">
-      <div className="p-2 bg-[#0f172a] rounded-lg">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-6 h-6" />
-      </div>
-      <div className="flex-1 space-y-1">
-        <div className="w-3/4 h-2 bg-gray-700 rounded"></div>
-        <div className="w-1/2 h-2 bg-gray-700 rounded"></div>
-      </div>
-    </div>
-  </div>
-
-  {/* Card 2 */}
-  <div className="bg-[#111827] border border-gray-700 rounded-xl p-4 w-64 text-white shadow-lg shadow-purple-500/20 transition-all">
-    <h3 className="text-lg font-semibold mb-2">Recently Solved</h3>
-    <div className="flex items-center gap-3">
-      <div className="p-2 bg-[#0f172a] rounded-lg">
-        <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-        </svg>
-      </div>
-      <div className="flex-1 space-y-1">
-        <div className="w-3/4 h-2 bg-gray-700 rounded"></div>
-        <div className="w-1/2 h-2 bg-gray-700 rounded"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
         {/* Code Blocks - ReactPrep Style */}
 
@@ -186,3 +163,10 @@ export default function App() { </br>
     </div>
   );
 }
+
+
+
+
+
+
+

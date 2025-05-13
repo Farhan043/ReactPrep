@@ -6,7 +6,8 @@ import Home from "./Pages/Home";
 import { Toaster } from "./components/ui/sonner";
 import Profile from "./Auth/Profile";
 import LogoutButton from "./Auth/LogoutButton";
-import ProtectedRoute from "./components/NavComponents/ProtectedRoute"; // Assuming you’ve made this
+import ProtectedRoute from "./components/NavComponents/ProtectedRoute"; // Assuming you've made this
+import AdminRoute from "./components/NavComponents/AdminRoute"; // Import AdminRoute
 import Dashboard from "./components/NavComponents/Dashboard";
 import Practice from "./components/NavComponents/Practice";
 import PlayGround from "./components/NavComponents/PlayGround";
@@ -38,11 +39,15 @@ const App = () => {
         <Route path="/challenge" element={<Challenges />} />
         <Route path="/interview" element={<Interview />} />
         <Route path="/resources" element={<Resources />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route 
+          path="/admin" 
+          element={
+            <AdminRoute>
+              <Admin />
+            </AdminRoute>
+          } 
+        />
         <Route path="/assistant" element={<Assistant />} />
-
-
-
         
         <Route
           path="/profile"
