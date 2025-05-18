@@ -4,6 +4,9 @@ const jwt = require('jsonwebtoken');
 const userService = require('../services/user.service');
 const {  validationResult } = require('express-validator');
 const blackListTokenModel = require('../models/blacklistToken.model');
+const sendMail = require('../utils/emailService');
+const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString();
+
 
 
 module.exports.register = async (req, res) => {
@@ -75,3 +78,34 @@ module.exports.register = async (req, res) => {
         await blackListTokenModel.create({ token });
         res.status(200).json({ message: 'Logout Successfully' });
       }
+
+
+     module.exports.forgotPassword = async (req, res) => {
+  const { email } = req.body;
+  const user = await userModel.findOne({ email });
+  if (!user) return res.status(404).json({ message: 'User not found' });
+
+  const otp = generateOTP();
+  user.otp = otp;
+  user.otpExpiry = Date.now() + 10 * 60 * 1000;
+  await user.save();
+
+  await sendMail(email, 'Password Reset OTP', `Your OTP is: ${otp}`);
+  res.json({ message: 'OTP sent to email' });
+};
+
+module.exports.resetPassword = async (req, res) => {
+  const { email, otp, newPassword } = req.body;
+  const user = await userModel.findOne({ email });
+
+  if (!user || user.otp !== otp || user.otpExpiry < Date.now()) {
+    return res.status(400).json({ message: 'Invalid or expired OTP' });
+  }
+
+  user.password = await userModel.hashPassword(newPassword);
+  user.otp = undefined;
+  user.otpExpiry = undefined;
+  await user.save();
+
+  res.json({ message: 'Password reset successful' });
+};

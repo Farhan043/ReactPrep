@@ -224,15 +224,21 @@ const Register = () => {
               SignUp
             </button>
 
-            <p className="text-center mt-3 text-purple-200/80 text-xs">
-              Already have an account?{" "}
-              <Link
-                to="/login"
-                className="text-blue-400 hover:text-purple-300 font-medium"
-              >
-                Log in
-              </Link>
-            </p>
+           <div className="text-center mt-3 space-y-1 text-purple-200/80 text-xs">
+  <p>
+    Already have an account?{" "}
+    <Link to="/login" className="text-blue-400 hover:text-purple-300 font-medium">
+      Log in
+    </Link>
+  </p>
+  <p>
+    Forgot password?{" "}
+    <Link to="/forgot-password" className="text-blue-400 hover:text-purple-300 font-medium">
+      Reset it here
+    </Link>
+  </p>
+</div>
+
           </form>
         </div>
       </div>

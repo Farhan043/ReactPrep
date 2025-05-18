@@ -17,38 +17,43 @@ import Interview from "./components/NavComponents/Interview";
 import Resources from "./components/NavComponents/Resources";
 import Admin from "./components/NavComponents/Admin";
 import Assistant from "./components/NavComponents/Assistant";
+import ForgotPassword from "./Auth/ForgotPassword";
+import ResetPassword from "./Auth/ResetPassword";
 
 const App = () => {
   return (
     <div>
       <Routes>
-         <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Home />
-               </ProtectedRoute>
-            }
-          />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/practice" element={<Practice />} />
         <Route path="/playground" element={<PlayGround />} />
         <Route path="/gaming" element={<Gaming />} />
         <Route path="/challenge" element={<Challenges />} />
         <Route path="/interview" element={<Interview />} />
         <Route path="/resources" element={<Resources />} />
-        <Route 
-          path="/admin" 
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+
+        <Route
+          path="/admin"
           element={
             <AdminRoute>
               <Admin />
             </AdminRoute>
-          } 
+          }
         />
         <Route path="/assistant" element={<Assistant />} />
-        
+
         <Route
           path="/profile"
           element={
