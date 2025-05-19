@@ -109,3 +109,29 @@ module.exports.resetPassword = async (req, res) => {
 
   res.json({ message: 'Password reset successful' });
 };
+
+module.exports.verifyOTP = async (req, res) => {
+  const { email, otp } = req.body;
+  
+  try {
+    const user = await userModel.findOne({ email });
+    
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    
+    if (!user.otp || user.otp !== otp || user.otpExpiry < Date.now()) {
+      return res.status(400).json({ message: 'Invalid or expired OTP' });
+    }
+    
+    // Clear OTP after successful verification
+    user.otp = undefined;
+    user.otpExpiry = undefined;
+    await user.save();
+    
+    res.status(200).json({ message: 'OTP verified successfully' });
+  } catch (error) {
+    console.error('OTP Verification Error:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};

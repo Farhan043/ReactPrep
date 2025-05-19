@@ -6,8 +6,8 @@ import Home from "./Pages/Home";
 import { Toaster } from "./components/ui/sonner";
 import Profile from "./Auth/Profile";
 import LogoutButton from "./Auth/LogoutButton";
-import ProtectedRoute from "./components/NavComponents/ProtectedRoute"; // Assuming you've made this
-import AdminRoute from "./components/NavComponents/AdminRoute"; // Import AdminRoute
+import ProtectedRoute from "./components/NavComponents/ProtectedRoute";
+import AdminRoute from "./components/NavComponents/AdminRoute";
 import Dashboard from "./components/NavComponents/Dashboard";
 import Practice from "./components/NavComponents/Practice";
 import PlayGround from "./components/NavComponents/PlayGround";
@@ -19,6 +19,7 @@ import Admin from "./components/NavComponents/Admin";
 import Assistant from "./components/NavComponents/Assistant";
 import ForgotPassword from "./Auth/ForgotPassword";
 import ResetPassword from "./Auth/ResetPassword";
+import OTPVerification from "./Auth/OTPVerification";
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/interview" element={<Interview />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-otp" element={<OTPVerification />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
         <Route

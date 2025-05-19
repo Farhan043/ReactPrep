@@ -21,6 +21,6 @@ router.get('/profile', authMiddleware.authUser, userController.getUserProfile);
 router.get('/logout', authMiddleware.authUser, userController.logoutUser);
 router.post('/forgot-password', userController.forgotPassword);
 router.post('/reset-password', userController.resetPassword);
-
+router.post('/verify-otp', userController.verifyOTP);
 
 module.exports = router;
