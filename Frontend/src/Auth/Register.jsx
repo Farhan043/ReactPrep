@@ -231,12 +231,7 @@ const Register = () => {
       Log in
     </Link>
   </p>
-  <p>
-    Forgot password?{" "}
-    <Link to="/forgot-password" className="text-blue-400 hover:text-purple-300 font-medium">
-      Reset it here
-    </Link>
-  </p>
+  
 </div>
 
           </form>
